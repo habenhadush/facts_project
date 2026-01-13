@@ -2,11 +2,11 @@
 <m:model version="26" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:m="http://cia.his.se/facts/m" xmlns:oc="http://cia.his.se/facts/oc" xmlns:v="http://cia.his.se/facts/v" xmlns:n="http://cia.his.se/facts/n" xmlns:l="http://cia.his.se/facts/l" xmlns:f="http://cia.his.se/facts/f" xmlns:t="http://cia.his.se/facts/t" xmlns:a="http://cia.his.se/facts/a" xmlns:o="http://cia.his.se/facts/o" xmlns:idi="http://cia.his.se/facts/idi" xmlns:c="http://cia.his.se/facts/c" xsi:schemaLocation="http://cia.his.se/facts/m file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/model.xsd http://cia.his.se/facts/oc file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/object_commons.xsd http://cia.his.se/facts/v file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/variants.xsd http://cia.his.se/facts/n file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/nodes.xsd http://cia.his.se/facts/l file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/logics.xsd http://cia.his.se/facts/f file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/flows.xsd http://cia.his.se/facts/t file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/templates.xsd http://cia.his.se/facts/a file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/application.xsd http://cia.his.se/facts/o file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/optimization.xsd http://cia.his.se/facts/idi file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/input_data_interface.xsd">
   <m:settings>
     <m:start>2010-01-04T00:00:00</m:start>
-    <m:duration>1:00:00:00</m:duration>
-    <m:warm_up>1:00:00</m:warm_up>
+    <m:duration>7:00:00:00</m:duration>
+    <m:warm_up>1:00:00:00</m:warm_up>
     <m:replications>5</m:replications>
     <m:output_options>
-      <m:shifting_bottleneck>false</m:shifting_bottleneck>
+      <m:shifting_bottleneck>true</m:shifting_bottleneck>
     </m:output_options>
     <m:visuals>
       <m:link_labels>true</m:link_labels>
@@ -14,7 +14,7 @@
       <m:link_msg>false</m:link_msg>
     </m:visuals>
   </m:settings>
-  <o:settings start="2010-01-04 00:00:00" simHorizon="1:00:00:00" simWarmUp="1:00:00" replications="5">
+  <o:settings start="2010-01-04 00:00:00" simHorizon="7:00:00:00" simWarmUp="1:00:00:00" replications="5">
     <o:inputs />
     <o:outputs />
     <o:objectives />
@@ -22,23 +22,16 @@
     <o:inputConstraints />
   </o:settings>
   <m:experiments>
-    <m:experiment optId="54" />
-    <m:experiment optId="55" />
-    <m:experiment optId="56" />
-    <m:experiment optId="57" />
+    <m:experiment optId="130" />
   </m:experiments>
   <a:settings />
   <t:templates />
   <v:variants>
     <v:variant name="COKE_300ML" id="var1" length="0.5" width="0.5" units="1" />
     <v:variant name="COKE_1L" id="var2" length="0.5" width="0.5" units="1" />
-    <v:variant name="COKE_15L" id="var3" length="0.5" width="0.5" units="1" />
+    <v:variant name="WATER_1L" id="var3" length="0.5" width="0.5" units="1" />
     <v:variant name="SPRITE_300ML" id="var4" length="0.5" width="0.5" units="1" />
     <v:variant name="SPRITE_1L" id="var5" length="0.5" width="0.5" units="1" />
-    <v:variant name="WATER_300ML" id="var6" length="0.5" width="0.5" units="1" />
-    <v:variant name="WATER_1L" id="var7" length="0.5" width="0.5" units="1" />
-    <v:variant name="WATER_15L" id="var8" length="0.5" width="0.5" units="1" />
-    <v:variant name="SPRITE_15L" id="var9" length="0.5" width="0.5" units="1" />
   </v:variants>
   <oc:variables />
   <m:skills>
@@ -48,7 +41,7 @@
   </m:skills>
   <n:component>
     <n:nodes>
-      <n:node id="node:1" name="Source1" xpos="500" ypos="640">
+      <n:node id="node:1" name="Source1" xpos="560" ypos="580">
         <n:entrance>
           <n:source>
             <oc:disturbances>
@@ -99,7 +92,7 @@
                   </oc:time>
                 </oc:limit>
                 <oc:variants>
-                  <oc:sequence cyclic="true" batch="true" sequence_batch="false">
+                  <oc:sequence cyclic="true" batch="true" sequence_batch="true">
                     <oc:table>
                       <oc:cells>
                         <oc:cell row="1" col="1" data_type="string">
@@ -109,7 +102,7 @@
                           <oc:distribution>
                             <oc:constant>
                               <oc:value data_type="integer">
-                                <oc:value>10</oc:value>
+                                <oc:value>10000</oc:value>
                               </oc:value>
                             </oc:constant>
                           </oc:distribution>
@@ -121,7 +114,43 @@
                           <oc:distribution>
                             <oc:constant>
                               <oc:value data_type="integer">
-                                <oc:value>5</oc:value>
+                                <oc:value>5000</oc:value>
+                              </oc:value>
+                            </oc:constant>
+                          </oc:distribution>
+                        </oc:cell>
+                        <oc:cell row="3" col="1" data_type="string">
+                          <oc:value>var3</oc:value>
+                        </oc:cell>
+                        <oc:cell row="3" col="2" data_type="distribution">
+                          <oc:distribution>
+                            <oc:constant>
+                              <oc:value data_type="integer">
+                                <oc:value>5000</oc:value>
+                              </oc:value>
+                            </oc:constant>
+                          </oc:distribution>
+                        </oc:cell>
+                        <oc:cell row="4" col="1" data_type="string">
+                          <oc:value>var4</oc:value>
+                        </oc:cell>
+                        <oc:cell row="4" col="2" data_type="distribution">
+                          <oc:distribution>
+                            <oc:constant>
+                              <oc:value data_type="integer">
+                                <oc:value>10000</oc:value>
+                              </oc:value>
+                            </oc:constant>
+                          </oc:distribution>
+                        </oc:cell>
+                        <oc:cell row="5" col="1" data_type="string">
+                          <oc:value>var5</oc:value>
+                        </oc:cell>
+                        <oc:cell row="5" col="2" data_type="distribution">
+                          <oc:distribution>
+                            <oc:constant>
+                              <oc:value data_type="integer">
+                                <oc:value>5000</oc:value>
                               </oc:value>
                             </oc:constant>
                           </oc:distribution>
@@ -135,7 +164,7 @@
           </n:source>
         </n:entrance>
       </n:node>
-      <n:node id="node:2" name="BlowMolder" xpos="640" ypos="640">
+      <n:node id="node:2" name="BlowMolder" xpos="700" ypos="580">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -233,7 +262,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:4" name="Packer" xpos="1000" ypos="640">
+      <n:node id="node:4" name="Packer" xpos="1060" ypos="580">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -311,7 +340,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:5" name="Filler" xpos="900" ypos="640">
+      <n:node id="node:5" name="Filler" xpos="960" ypos="580">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -355,6 +384,16 @@
             </oc:distribution>
             <n:ept>none</n:ept>
           </n:process_time>
+          <n:setup_time>
+            <oc:distribution>
+              <oc:constant>
+                <oc:value data_type="time">
+                  <oc:value>0</oc:value>
+                </oc:value>
+              </oc:constant>
+            </oc:distribution>
+            <n:ept>none</n:ept>
+          </n:setup_time>
           <n:exit_strategy rule="cyclic" />
           <n:dispatch rule="FIFO" />
           <n:resources>
@@ -409,7 +448,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:8" name="Warehouse" xpos="1240" ypos="640">
+      <n:node id="node:8" name="Warehouse" xpos="1300" ypos="580">
         <n:exit>
           <n:sink>
             <oc:disturbances>
@@ -437,7 +476,7 @@
           </n:sink>
         </n:exit>
       </n:node>
-      <n:node id="node:10" name="AirConveyor" xpos="780" ypos="640">
+      <n:node id="node:10" name="AirConveyor" xpos="840" ypos="580">
         <n:buffer>
           <oc:disturbances>
             <oc:disturbance>
@@ -452,7 +491,7 @@
             </oc:disturbance>
           </oc:disturbances>
           <n:capacity data_type="integer">
-            <oc:value>2000</oc:value>
+            <oc:value>1</oc:value>
           </n:capacity>
           <n:process_time>
             <oc:distribution>
@@ -467,7 +506,7 @@
           <n:dispatch rule="FIFO" />
         </n:buffer>
       </n:node>
-      <n:node id="node:41" name="Palletizer" xpos="1120" ypos="640">
+      <n:node id="node:41" name="Palletizer" xpos="1180" ypos="580">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -560,10 +599,13 @@
     </n:nodes>
     <l:logics />
     <f:flows>
-      <f:flow name="Default flow" id="flow:1">
+      <f:flow name="Buffer" id="flow:1">
         <f:variants>
           <oc:reference idref="var1" />
           <oc:reference idref="var2" />
+          <oc:reference idref="var3" />
+          <oc:reference idref="var4" />
+          <oc:reference idref="var5" />
         </f:variants>
         <f:nodes>
           <f:node idref="node:1">
@@ -622,13 +664,13 @@
     <oc:notes />
     <c:modules>
       <c:module name="blower_setup.hpp" path="">
-        <c:code>I2luY2x1ZGUgPHN0ZGlvLmg+DQojaW5jbHVkZSA8eHNpbS5oPg0KI2luY2x1ZGUgPHRvb2xzLmhwcD4NCiNwcmFnbWEgb25jZQ0KDQp1c2luZyBuYW1lc3BhY2UgeHNpbTsNCnVzaW5nIG5hbWVzcGFjZSBzdGQ7DQoNCmNsYXNzIEJsb3dlclNldHVwIDogcHVibGljIE9wZXJhdGlvbiB7DQogICAgcHJpdmF0ZToNCiAgICAgICAgc3RyaW5nIF9sYXN0U2l6ZTsNCg0KICAgIHB1YmxpYzoNCiAgICAgICAgQmxvd2VyU2V0dXAoKSA6IE9wZXJhdGlvbigpLCBfbGFzdFNpemUoIk5vbmUiKXsNCg0KICAgICAgICB9DQoNCiAgICAgICAgYm9vbCBlbnRlcihFbnRpdHkgKmVudGl0eSwgTm9kZSogZGVwYXJ0dXJlKSBvdmVycmlkZSB7DQogICAgICAgICAgICBzdHJpbmcgY3VycmVudFZhcmlhbnQgPSBlbnRpdHktPnZhcmlhbnQoKS0+bmFtZSgpOw0KDQogICAgICAgICAgICBTaXplVmFyaWFudCBjdXJyZW50U2l6ZSA9IEdldFNpemVGcm9tVmFyaWFudChjdXJyZW50VmFyaWFudCk7DQoNCiAgICAgICAgICAgIGRvdWJsZSBwZW5hbHR5ID0gMC4wOw0KICAgICAgICAgICAgaWYgKF9sYXN0U2l6ZSAhPSAiTm9uZSIpIHsgIA0KICAgICAgICAgICAgICAgICB0cnkgew0KICAgICAgICAgICAgICAgICAgICAgU2l6ZVZhcmlhbnQgbGFzdFNpemVFbnVtID0gR2V0U2l6ZUZyb21WYXJpYW50KF9sYXN0U2l6ZSk7DQogICAgICAgICAgICAgICAgICAgICBpZiAobGFzdFNpemVFbnVtICE9IGN1cnJlbnRTaXplKSB7DQogICAgICAgICAgICAgICAgICAgICAgICAgcGVuYWx0eSA9IDcyMDAuMDsgLy8gMiBIb3VycyBNZWNoYW5pY2FsIENoYW5nZQ0KICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICB9IGNhdGNoICguLi4pIHsgcGVuYWx0eSA9IDAuMDsgfQ0KICAgICAgICAgICAgfQ0KDQogICAgICAgICAgICBpZiAocGVuYWx0eSA+IDApIHsNCiAgICAgICAgICAgICAgICBkb19zZXR1cChzaW0oKS0+bm93KCkgKyBwZW5hbHR5KTsNCiAgICAgICAgICAgICAgICBfbGFzdFNpemUgPSBjdXJyZW50VmFyaWFudDsgDQogICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOyAvLyBSRUpFQ1QgYm90dGxlIC0+IE1hY2hpbmUgZW50ZXJzIFNldHVwDQogICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIF9sYXN0U2l6ZSA9IGN1cnJlbnRWYXJpYW50Ow0KICAgICAgICAgICAgcmV0dXJuIE9wZXJhdGlvbjo6ZW50ZXIoZW50aXR5LCBkZXBhcnR1cmUpOw0KICAgICAgICB9DQp9Ow==</c:code>
+        <c:code>I2luY2x1ZGUgPHhzaW0uaD4NCiNpbmNsdWRlIDx0b29scy5ocHA+DQojaW5jbHVkZSA8c3RyaW5nPg0KDQp1c2luZyBuYW1lc3BhY2UgeHNpbTsNCnVzaW5nIG5hbWVzcGFjZSBzdGQ7DQoNCmNsYXNzIEJsb3dlclNldHVwIDogcHVibGljIE9wZXJhdGlvbiB7DQogICAgcHJpdmF0ZToNCiAgICAgICAgc3RyaW5nIF9sYXN0VmFyaWFudE5hbWU7IA0KICAgICAgICBzdHJpbmcgX3BlbmRpbmdOZXdWYXJpYW50Ow0KDQogICAgcHVibGljOg0KICAgICAgICBCbG93ZXJTZXR1cCgpIDogT3BlcmF0aW9uKCksIF9sYXN0VmFyaWFudE5hbWUoIk5vbmUiKSwgX3BlbmRpbmdOZXdWYXJpYW50KCJOb25lIikge30NCg0KICAgICAgICB2b2lkIGluaXQoKSBvdmVycmlkZSB7DQogICAgICAgICAgICBPcGVyYXRpb246OmluaXQoKTsNCiAgICAgICAgICAgIF9sYXN0VmFyaWFudE5hbWUgPSAiTm9uZSI7DQogICAgICAgICAgICBfcGVuZGluZ05ld1ZhcmlhbnQgPSAiTm9uZSI7DQogICAgICAgIH0NCg0KICAgICAgICB2b2lkIGZpbmFsaXplKCkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgT3BlcmF0aW9uOjpmaW5hbGl6ZSgpOw0KICAgICAgICB9DQoNCiAgICAgICAgZG91YmxlIGNhbGN1bGF0ZVNldHVwVGltZSgpIHsNCiAgICAgICAgICAgIHN0cmluZyBvbGRWID0gX2xhc3RWYXJpYW50TmFtZTsNCiAgICAgICAgICAgIHN0cmluZyBuZXdWID0gX3BlbmRpbmdOZXdWYXJpYW50Ow0KDQogICAgICAgICAgICBpZihvbGRWID09ICJOb25lIiB8fCBvbGRWID09IG5ld1YpIHJldHVybiAwLjA7DQoNCiAgICAgICAgICAgIHRyeSB7DQogICAgICAgICAgICAgICAgaWYgKEdldFNpemVGcm9tVmFyaWFudChvbGRWKSAhPSBHZXRTaXplRnJvbVZhcmlhbnQobmV3VikpIHsNCiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIDcyMDAuMDsgLy8gMiBIb3VycyBmb3IgbW9sZCBjaGFuZ2UNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9IGNhdGNoICguLi4pIHsgcmV0dXJuIDAuMDsgfQ0KDQogICAgICAgICAgICByZXR1cm4gMC4wOyANCiAgICAgICAgfQ0KDQogICAgICAgIGJvb2wgZW50ZXIoRW50aXR5ICplbnRpdHksIE5vZGUqIGRlcGFydHVyZSkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgDQogICAgICAgICAgICBpZiAoc2V0dXAoKSkgcmV0dXJuIGZhbHNlOw0KDQogICAgICAgICAgICBpZihlbnRpdHktPnZhcmlhbnQoKSl7DQogICAgICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gZW50aXR5LT52YXJpYW50KCktPm5hbWUoKTsNCiAgICAgICAgICAgIH0gZWxzZSB7DQogICAgICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gIlVua25vd24iOw0KICAgICAgICAgICAgfQ0KDQogICAgICAgICAgICBpZihPcGVyYXRpb246OmVudGVyKGVudGl0eSwgZGVwYXJ0dXJlKSl7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgZG91YmxlIGR1cmF0aW9uID0gY2FsY3VsYXRlU2V0dXBUaW1lKCk7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgaWYgKGR1cmF0aW9uID4gMCkgew0KICAgICAgICAgICAgICAgICAgICBkb19zZXR1cChzaW0oKS0+bm93KCkgKyBkdXJhdGlvbik7DQogICAgICAgICAgICAgICAgfQ0KDQogICAgICAgICAgICAgICAgX2xhc3RWYXJpYW50TmFtZSA9IF9wZW5kaW5nTmV3VmFyaWFudDsNCiAgICAgICAgICAgICAgICByZXR1cm4gdHJ1ZTsNCiAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgcmV0dXJuIGZhbHNlOw0KICAgICAgICB9DQp9Ow==</c:code>
       </c:module>
       <c:module name="filler_setup.hpp" path="">
-        <c:code>I2luY2x1ZGUgPHN0ZGlvLmg+DQojaW5jbHVkZSA8eHNpbS5oPg0KI2luY2x1ZGUgPHRvb2xzLmhwcD4NCiNwcmFnbWEgb25jZQ0KDQp1c2luZyBuYW1lc3BhY2UgeHNpbTsNCnVzaW5nIG5hbWVzcGFjZSBzdGQ7DQoNCmNsYXNzIEZpbGVyU2V0dXA6IHB1YmxpYyBPcGVyYXRpb24gew0KICAgIHByaXZhdGU6DQogICAgICAgIHN0cmluZyBfbGFzdFZhcmlhbnROYW1lOw0KDQogICAgcHVibGljOg0KICAgICAgICBGaWxlclNldHVwKCkgOiBPcGVyYXRpb24oKSwgX2xhc3RWYXJpYW50TmFtZSgiTm9uZSIpIHsNCiAgICAgICAgICAgIC8vc2ltKCktPmxvZygpIDw8ICJlbmdpbmUgc3RhcnRlZCAuLi4iIDw8IGVuZGw7DQogICAgICAgIH0NCg0KICAgICAgICBkb3VibGUgY2FsY3VsYXRlU2V0dXBUaW1lKHN0cmluZyBvbGRWYXJpYW50LCBzdHJpbmcgbmV3VmFyaWFudCl7DQogICAgICAgICAgICBpZihvbGRWYXJpYW50ID09ICJOb25lIiB8fCBvbGRWYXJpYW50ID09IG5ld1ZhcmlhbnQpew0KICAgICAgICAgICAgICAgIHJldHVybiAwLjA7DQogICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIGRvdWJsZSBzaXplUGVuYWx0eSA9IDAuMDsNCiAgICAgICAgICAgIGRvdWJsZSBmbGF2b3JQZW5hbHR5ID0gMC4wOw0KDQogICAgICAgICAgICAvLyAyLiBDSEVDSyBTSVpFIEZJUlNUIChQcmlvcml0eSAxOiBNZWNoYW5pY2FsIENoYW5nZSkNCiAgICAgICAgICAgIC8vIFdlIHVzZSB0cnktY2F0Y2ggdG8gaGFuZGxlIHRoZSAidGhyb3ciIGZyb20gdG9vbHMuaHBwIGdyYWNlZnVsbHkNCiAgICAgICAgICAgIHRyeSB7DQogICAgICAgICAgICAgICAgU2l6ZVZhcmlhbnQgb2xkU2l6ZSA9IEdldFNpemVGcm9tVmFyaWFudChvbGRWYXJpYW50KTsNCiAgICAgICAgICAgICAgICBTaXplVmFyaWFudCBuZXdTaXplID0gR2V0U2l6ZUZyb21WYXJpYW50KG5ld1ZhcmlhbnQpOw0KICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgIGlmKG9sZFNpemUgIT0gbmV3U2l6ZSl7DQogICAgICAgICAgICAgICAgICAgIHNpemVQZW5hbHR5ID0gNzIwMC4wOyAvLyAyIEhvdXJzDQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgfSBjYXRjaCAoLi4uKSB7DQogICAgICAgICAgICAgICAgLy9zaW0oKS0+bG9nKCkgPDwgIldBUk5JTkc6IFZhcmlhbnQgU2l6ZSBVbmtub3duIGZvciAiIDw8IG9sZFZhcmlhbnQgPDwgIiBvciAiIDw8IG5ld1ZhcmlhbnQgPDwgZW5kbDsNCiAgICAgICAgICAgICAgICBzaXplUGVuYWx0eSA9IDAuMDsgLy8gRmFpbCBzYWZlDQogICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIC8vIDMuIENIRUNLIEZMQVZPUiAoUHJpb3JpdHkgMjogUmluc2UpDQogICAgICAgICAgICB0cnkgew0KICAgICAgICAgICAgICAgIEZsYXZvclZhcmlhbnQgb2xkRmxhdm9yID0gR2V0Rmxhdm9yVmFyaWFudChvbGRWYXJpYW50KTsNCiAgICAgICAgICAgICAgICBGbGF2b3JWYXJpYW50IG5ld0ZsYXZvciA9IEdldEZsYXZvclZhcmlhbnQobmV3VmFyaWFudCk7DQoNCiAgICAgICAgICAgICAgICAvLyBEZWZpbmUgdGhlIE1hdHJpeA0KICAgICAgICAgICAgICAgIGlmIChvbGRGbGF2b3IgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSAmJiBuZXdGbGF2b3IgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFKSBmbGF2b3JQZW5hbHR5ID0gMTIwMC4wOw0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKG9sZEZsYXZvciA9PSBGbGF2b3JWYXJpYW50OjpDT0tFICYmIG5ld0ZsYXZvciA9PSBGbGF2b3JWYXJpYW50OjpXQVRFUikgZmxhdm9yUGVuYWx0eSA9IDM2MDAuMDsNCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGbGF2b3IgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFICYmIG5ld0ZsYXZvciA9PSBGbGF2b3JWYXJpYW50OjpXQVRFUikgZmxhdm9yUGVuYWx0eSA9IDMwMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGbGF2b3IgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFICYmIG5ld0ZsYXZvciA9PSBGbGF2b3JWYXJpYW50OjpDT0tFKSBmbGF2b3JQZW5hbHR5ID0gMTIwMC4wOw0KICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKG9sZEZsYXZvciA9PSBGbGF2b3JWYXJpYW50OjpXQVRFUiAmJiBuZXdGbGF2b3IgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSkgZmxhdm9yUGVuYWx0eSA9IDEyMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGbGF2b3IgPT0gRmxhdm9yVmFyaWFudDo6V0FURVIgJiYgbmV3Rmxhdm9yID09IEZsYXZvclZhcmlhbnQ6OlNQUklURSkgZmxhdm9yUGVuYWx0eSA9IDEyMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGZsYXZvclBlbmFsdHkgPSAzMDAuMDsgLy8gRGVmYXVsdCByaW5zZQ0KICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgfSBjYXRjaCAoLi4uKSB7DQogICAgICAgICAgICAgICAgc2ltKCktPmxvZygpIDw8ICJXQVJOSU5HOiBGbGF2b3IgVW5rbm93bi4iIDw8IGVuZGw7DQogICAgICAgICAgICAgICAgZmxhdm9yUGVuYWx0eSA9IDMwMC4wOyANCiAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgLy8gNC4gTE9HSUMgREVDSVNJT046IFRha2UgdGhlIGxhcmdlc3QgcGVuYWx0eQ0KICAgICAgICAgICAgLy8gSWYgd2UgY2hhbmdlIG1vbGRzICg3MjAwKSwgd2UgaGF2ZSBwbGVudHkgb2YgdGltZSB0byByaW5zZSAoMTIwMCksIHNvIHdlIGp1c3Qgd2FpdCA3MjAwLg0KICAgICAgICAgICAgcmV0dXJuIHN0ZDo6bWF4KHNpemVQZW5hbHR5LCBmbGF2b3JQZW5hbHR5KTsNCiAgICAgICAgfQ0KDQogICAgICAgIGJvb2wgZW50ZXIoRW50aXR5ICplbnRpdHksIE5vZGUqIGRlcGFydHVyZSkgb3ZlcnJpZGV7DQogICAgICAgICAgICANCiAgICAgICAgICAgIC8vIGNoZWNrIGlmIHRoZSBzaW0gZW5naW5lIGFjY2VwcyB0aGUgZW50aXR5DQogICAgICAgICAgICBpZighT3BlcmF0aW9uOjplbnRlcihlbnRpdHksIGRlcGFydHVyZSkpew0KICAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsNCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIA0KICAgICAgICAgICAgc3RyaW5nIGN1cnJlbnRWYXJpYW50ID0gZW50aXR5LT52YXJpYW50KCktPm5hbWUoKTsNCg0KICAgICAgICAgICAgZG91YmxlIGR1cmF0aW9uID0gY2FsY3VsYXRlU2V0dXBUaW1lKF9sYXN0VmFyaWFudE5hbWUsIGN1cnJlbnRWYXJpYW50KTsNCg0KICAgICAgICAgICBpZiAoZHVyYXRpb24gPCAwIHx8IGR1cmF0aW9uID4gMTAwMDAwLjApIHsNCiAgICAgICAgICAgICAgICAvL3NpbSgpLT5sb2coKSA8PCAiQ1JJVElDQUwgRVJST1I6IENhbGN1bGF0ZWQgRHVyYXRpb24gSW52YWxpZDogIiA8PCBkdXJhdGlvbiA8PCAiLiBSZXNldHRpbmcgdG8gMC4iIDw8IGVuZGw7DQogICAgICAgICAgICAgICAgZHVyYXRpb24gPSAwLjA7DQogICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIGlmKGR1cmF0aW9uID4gMCl7DQogICAgICAgICAgICAgICAgLy9zaW0oKSAtPmxvZygpIDw8ICJtYWNoaW5lIGlzIGVudGVyaW5nIGludG8gc2V0dXAgZnJvbSAiIDw8IF9sYXN0VmFyaWFudE5hbWUgPDwgInRvIiA8PCBjdXJyZW50VmFyaWFudCA8PCAiYW5kIHNldHVwIHRpbWUgaXM6ICIgPDwgZHVyYXRpb24gPDwgZW5kbDsNCiAgICAgICAgICAgICAgICBkb19zZXR1cChzaW0oKS0+bm93KCkgKyBkdXJhdGlvbik7DQogICAgICAgICAgICAgICAgLy9zaW0oKS0+bG9nKCkgPDwgY3VycmVudFZhcmlhbnQgPDwgIjogc2V0dXAgZmluaXNoZWQuIiA8PCBlbmRsOw0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgX2xhc3RWYXJpYW50TmFtZSA9IGN1cnJlbnRWYXJpYW50Ow0KICAgICAgICAgICAgcmV0dXJuIHRydWU7DQogICAgICAgIH0NCn07</c:code>
+        <c:code>I2luY2x1ZGUgPHhzaW0uaD4NCiNpbmNsdWRlIDx0b29scy5ocHA+DQojaW5jbHVkZSA8c3RyaW5nPg0KDQp1c2luZyBuYW1lc3BhY2UgeHNpbTsNCnVzaW5nIG5hbWVzcGFjZSBzdGQ7DQoNCmNsYXNzIEZpbGVyU2V0dXAgOiBwdWJsaWMgT3BlcmF0aW9uIHsNCiAgICBwcml2YXRlOg0KICAgICAgICBzdHJpbmcgX2xhc3RWYXJpYW50TmFtZTsgDQogICAgICAgIHN0cmluZyBfcGVuZGluZ05ld1ZhcmlhbnQ7DQoNCiAgICBwdWJsaWM6DQogICAgICAgIEZpbGVyU2V0dXAoKSA6IE9wZXJhdGlvbigpLCBfbGFzdFZhcmlhbnROYW1lKCJOb25lIiksIF9wZW5kaW5nTmV3VmFyaWFudCgiTm9uZSIpIHt9DQoNCiAgICAgICAgdm9pZCBpbml0KCkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgT3BlcmF0aW9uOjppbml0KCk7DQogICAgICAgICAgICBfbGFzdFZhcmlhbnROYW1lID0gIk5vbmUiOw0KICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gIk5vbmUiOw0KICAgICAgICB9DQoNCiAgICAgICAgdm9pZCBmaW5hbGl6ZSgpIG92ZXJyaWRlIHsNCiAgICAgICAgICAgIE9wZXJhdGlvbjo6ZmluYWxpemUoKTsNCiAgICAgICAgfQ0KDQogICAgICAgIGRvdWJsZSBjYWxjdWxhdGVTZXR1cFRpbWUoKSB7DQogICAgICAgICAgICBzdHJpbmcgb2xkViA9IF9sYXN0VmFyaWFudE5hbWU7DQogICAgICAgICAgICBzdHJpbmcgbmV3ViA9IF9wZW5kaW5nTmV3VmFyaWFudDsNCg0KICAgICAgICAgICAgaWYob2xkViA9PSAiTm9uZSIgfHwgb2xkViA9PSBuZXdWKSByZXR1cm4gMC4wOw0KDQogICAgICAgICAgICB0cnkgew0KICAgICAgICAgICAgICAgIGlmIChHZXRTaXplRnJvbVZhcmlhbnQob2xkVikgIT0gR2V0U2l6ZUZyb21WYXJpYW50KG5ld1YpKSB7DQogICAgICAgICAgICAgICAgICAgIHJldHVybiA3MjAwLjA7IA0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIH0gY2F0Y2ggKC4uLikgeyByZXR1cm4gMC4wOyB9DQoNCiAgICAgICAgICAgIGRvdWJsZSBwZW5hbHR5ID0gMzAwLjA7IC8vIERlZmF1bHQNCiAgICAgICAgICAgIHRyeSB7DQogICAgICAgICAgICAgICAgRmxhdm9yVmFyaWFudCBvbGRGID0gR2V0Rmxhdm9yVmFyaWFudChvbGRWKTsNCiAgICAgICAgICAgICAgICBGbGF2b3JWYXJpYW50IG5ld0YgPSBHZXRGbGF2b3JWYXJpYW50KG5ld1YpOw0KDQogICAgICAgICAgICAgICAgaWYgKG9sZEYgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSAmJiBuZXdGID09IEZsYXZvclZhcmlhbnQ6OlNQUklURSkgcGVuYWx0eSA9IDEyMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGID09IEZsYXZvclZhcmlhbnQ6OkNPS0UgJiYgbmV3RiA9PSBGbGF2b3JWYXJpYW50OjpXQVRFUikgcGVuYWx0eSA9IDM2MDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGID09IEZsYXZvclZhcmlhbnQ6OlNQUklURSAmJiBuZXdGID09IEZsYXZvclZhcmlhbnQ6OldBVEVSKSBwZW5hbHR5ID0gMzAwMC4wOw0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKG9sZEYgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFICYmIG5ld0YgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSkgcGVuYWx0eSA9IDEyMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGID09IEZsYXZvclZhcmlhbnQ6OldBVEVSICYmIG5ld0YgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSkgcGVuYWx0eSA9IDEyMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGID09IEZsYXZvclZhcmlhbnQ6OldBVEVSICYmIG5ld0YgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFKSBwZW5hbHR5ID0gMTIwMC4wOw0KICAgICAgICAgICAgfSBjYXRjaCAoLi4uKSB7IHBlbmFsdHkgPSAzMDAuMDsgfQ0KDQogICAgICAgICAgICByZXR1cm4gcGVuYWx0eTsNCiAgICAgICAgfQ0KDQogICAgICAgIGJvb2wgZW50ZXIoRW50aXR5ICplbnRpdHksIE5vZGUqIGRlcGFydHVyZSkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgDQogICAgICAgICAgICBpZiAoc2V0dXAoKSkgcmV0dXJuIGZhbHNlOw0KDQogICAgICAgICAgICBpZihlbnRpdHktPnZhcmlhbnQoKSl7DQogICAgICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gZW50aXR5LT52YXJpYW50KCktPm5hbWUoKTsNCiAgICAgICAgICAgIH0gZWxzZSB7DQogICAgICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gIlVua25vd24iOw0KICAgICAgICAgICAgfQ0KDQogICAgICAgICAgICBpZihPcGVyYXRpb246OmVudGVyKGVudGl0eSwgZGVwYXJ0dXJlKSl7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgZG91YmxlIGR1cmF0aW9uID0gY2FsY3VsYXRlU2V0dXBUaW1lKCk7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgaWYgKGR1cmF0aW9uID4gMCkgew0KICAgICAgICAgICAgICAgICAgICBkb19zZXR1cChzaW0oKS0+bm93KCkgKyBkdXJhdGlvbik7DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIF9sYXN0VmFyaWFudE5hbWUgPSBfcGVuZGluZ05ld1ZhcmlhbnQ7DQogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7DQogICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIHJldHVybiBmYWxzZTsNCiAgICAgICAgfQ0KfTsNCg==</c:code>
       </c:module>
       <c:module name="tools.hpp" path="">
-        <c:code>I2luY2x1ZGUgPHN0ZGlvLmg+DQojaW5jbHVkZSA8eHNpbS5oPg0KI3ByYWdtYSBvbmNlDQoNCnVzaW5nIG5hbWVzcGFjZSBzdGQ7DQp1c2luZyBuYW1lc3BhY2UgeHNpbTsNCg0KZW51bSBGbGF2b3JWYXJpYW50IHsNCiAgICBDT0tFLA0KICAgIFNQUklURSwNCiAgICBXQVRFUg0KfTsNCg0KDQplbnVtIGNsYXNzIFNpemVWYXJpYW50IHsNCiAgICBTaXplXzMwME1MLA0KICAgIFNpemVfMUwsDQogICAgU2l6ZV8xNUwNCn07DQoNCg0KU2l6ZVZhcmlhbnQgR2V0U2l6ZUZyb21WYXJpYW50KGNvbnN0IHN0cmluZyYgdmFyaWFudE5hbWUpIHsNCiAgICANCiAgICBzdGQ6OnN0cmluZyBzZWFyY2hTdHIgPSB2YXJpYW50TmFtZTsNCiAgICBzdGQ6OnRyYW5zZm9ybShzZWFyY2hTdHIuYmVnaW4oKSwgc2VhcmNoU3RyLmVuZCgpLCBzZWFyY2hTdHIuYmVnaW4oKSwgOjp0b3VwcGVyKTsNCiAgICANCiAgICBzdGF0aWMgY29uc3Qgc3RkOjptYXA8c3RkOjpzdHJpbmcsIFNpemVWYXJpYW50PiBsb29rdXBUYWJsZSA9IHsNCiAgICAgICAgeyIzMDBNTCIsIFNpemVWYXJpYW50OjpTaXplXzMwME1MfSwNCiAgICAgICAgeyIxTCIsIFNpemVWYXJpYW50OjpTaXplXzFMfSwNCiAgICAgICAgeyIxNUwiLCAgICBTaXplVmFyaWFudDo6U2l6ZV8xNUx9LA0KICAgIH07DQogICAgDQogICAgZm9yIChjb25zdCBhdXRvJiBpdGVtIDogbG9va3VwVGFibGUpIHsNCiAgICAgICAgICAgIGNvbnN0IHN0cmluZyYga2V5ID0gaXRlbS5maXJzdDsNCiAgICAgICAgICAgIFNpemVWYXJpYW50IHZhbHVlID0gaXRlbS5zZWNvbmQ7DQoNCiAgICAgICAgICAgIGlmIChzZWFyY2hTdHIuZmluZChrZXkpICE9IHN0ZDo6c3RyaW5nOjpucG9zKSB7DQogICAgICAgICAgICAgICAgcmV0dXJuIHZhbHVlOw0KICAgICAgICAgICAgfQ0KICAgICAgICB9DQoNCiAgICB0aHJvdyBydW50aW1lX2Vycm9yKCJ0aGVyZSBpcyBub3QgcHJvZHVjdCB3aXRoIHRoZSB2YXJpYW50IG5hbWU6ICIgKyB2YXJpYW50TmFtZSk7IA0KfQ0KDQpGbGF2b3JWYXJpYW50IEdldEZsYXZvclZhcmlhbnQoY29uc3Qgc3RyaW5nJiB2YXJpYW50TmFtZSkgew0KICAgIA0KICAgIHN0ZDo6c3RyaW5nIHNlYXJjaFN0ciA9IHZhcmlhbnROYW1lOw0KICAgIHN0ZDo6dHJhbnNmb3JtKHNlYXJjaFN0ci5iZWdpbigpLCBzZWFyY2hTdHIuZW5kKCksIHNlYXJjaFN0ci5iZWdpbigpLCA6OnRvdXBwZXIpOw0KICAgIA0KICAgIHN0YXRpYyBjb25zdCBzdGQ6Om1hcDxzdGQ6OnN0cmluZywgRmxhdm9yVmFyaWFudD4gbG9va3VwVGFibGUgPSB7DQogICAgICAgIHsiQ09LRSIsIEZsYXZvclZhcmlhbnQ6OkNPS0V9LA0KICAgICAgICB7IlNQUklURSIsIEZsYXZvclZhcmlhbnQ6OlNQUklURX0sDQogICAgICAgIHsiV0FURVIiLCAgICBGbGF2b3JWYXJpYW50OjpXQVRFUn0sDQogICAgfTsNCiAgICANCiAgICBmb3IgKGNvbnN0IGF1dG8mIGl0ZW0gOiBsb29rdXBUYWJsZSkgew0KICAgICAgICAgICAgY29uc3Qgc3RyaW5nJiBrZXkgPSBpdGVtLmZpcnN0Ow0KICAgICAgICAgICAgRmxhdm9yVmFyaWFudCB2YWx1ZSA9IGl0ZW0uc2Vjb25kOw0KDQogICAgICAgICAgICBpZiAoc2VhcmNoU3RyLmZpbmQoa2V5KSAhPSBzdGQ6OnN0cmluZzo6bnBvcykgew0KICAgICAgICAgICAgICAgIHJldHVybiB2YWx1ZTsNCiAgICAgICAgICAgIH0NCiAgICAgICAgfQ0KDQogICAgdGhyb3cgcnVudGltZV9lcnJvcigidGhlcmUgaXMgbm90IHByb2R1Y3Qgd2l0aCB0aGUgdmFyaWFudCBuYW1lOiAiICsgdmFyaWFudE5hbWUpOyANCn0=</c:code>
+        <c:code>I2luY2x1ZGUgPHN0cmluZz4NCiNpbmNsdWRlIDx4c2ltLmg+DQojcHJhZ21hIG9uY2UNCg0KdXNpbmcgbmFtZXNwYWNlIHN0ZDsNCnVzaW5nIG5hbWVzcGFjZSB4c2ltOw0KDQplbnVtIEZsYXZvclZhcmlhbnQgew0KICAgIENPS0UsDQogICAgU1BSSVRFLA0KICAgIFdBVEVSLA0KICAgIEZMQVZPUl9VTktOT1dOIA0KfTsNCg0KZW51bSBjbGFzcyBTaXplVmFyaWFudCB7DQogICAgU2l6ZV8zMDBNTCwNCiAgICBTaXplXzFMLA0KICAgIFNpemVfVU5LTk9XTiAgIA0KfTsNCg0KaW5saW5lIFNpemVWYXJpYW50IEdldFNpemVGcm9tVmFyaWFudChjb25zdCBzdHJpbmcmIHZhcmlhbnROYW1lKSB7DQogICAgDQogICAgaWYgKHZhcmlhbnROYW1lLmVtcHR5KCkgfHwgdmFyaWFudE5hbWUgPT0gIk5vbmUiKSByZXR1cm4gU2l6ZVZhcmlhbnQ6OlNpemVfVU5LTk9XTjsNCg0KICAgIHNpemVfdCB1bmRlcnNjb3JlUG9zID0gdmFyaWFudE5hbWUuZmluZCgnXycpOw0KICAgIGlmICh1bmRlcnNjb3JlUG9zID09IHN0cmluZzo6bnBvcykgcmV0dXJuIFNpemVWYXJpYW50OjpTaXplX1VOS05PV047DQoNCiAgICBjaGFyIGZpcnN0RGlnaXQgPSB2YXJpYW50TmFtZVt1bmRlcnNjb3JlUG9zICsgMV07DQoNCiAgICBpZiAoZmlyc3REaWdpdCA9PSAnMycpIHsNCiAgICAgICAgcmV0dXJuIFNpemVWYXJpYW50OjpTaXplXzMwME1MOw0KICAgIH0NCiAgICBlbHNlIGlmIChmaXJzdERpZ2l0ID09ICcxJykgew0KICAgICAgICBjaGFyIHNlY29uZERpZ2l0ID0gdmFyaWFudE5hbWVbdW5kZXJzY29yZVBvcyArIDJdOw0KDQogICAgICAgIHJldHVybiBTaXplVmFyaWFudDo6U2l6ZV8xTDsgLy8gTXVzdCBiZSAiMUwiDQogICAgfQ0KDQogICAgcmV0dXJuIFNpemVWYXJpYW50OjpTaXplX1VOS05PV047DQp9DQoNCmlubGluZSBGbGF2b3JWYXJpYW50IEdldEZsYXZvclZhcmlhbnQoY29uc3Qgc3RyaW5nJiB2YXJpYW50TmFtZSkgew0KICAgIA0KICAgIGlmICh2YXJpYW50TmFtZS5lbXB0eSgpIHx8IHZhcmlhbnROYW1lID09ICJOb25lIikgcmV0dXJuIEZsYXZvclZhcmlhbnQ6OkZMQVZPUl9VTktOT1dOOw0KDQogICAgY2hhciBjID0gdmFyaWFudE5hbWVbMF07DQoNCiAgICBzd2l0Y2ggKGMpIHsNCiAgICAgICAgY2FzZSAnQyc6IA0KICAgICAgICBjYXNlICdjJzogDQogICAgICAgICAgICByZXR1cm4gRmxhdm9yVmFyaWFudDo6Q09LRTsNCiAgICAgICAgDQogICAgICAgIGNhc2UgJ1MnOiANCiAgICAgICAgY2FzZSAncyc6IA0KICAgICAgICAgICAgcmV0dXJuIEZsYXZvclZhcmlhbnQ6OlNQUklURTsNCiAgICAgICAgDQogICAgICAgIGNhc2UgJ1cnOiANCiAgICAgICAgY2FzZSAndyc6IA0KICAgICAgICAgICAgcmV0dXJuIEZsYXZvclZhcmlhbnQ6OldBVEVSOw0KICAgICAgICAgICAgDQogICAgICAgIGRlZmF1bHQ6IA0KICAgICAgICAgICAgcmV0dXJuIEZsYXZvclZhcmlhbnQ6OkZMQVZPUl9VTktOT1dOOw0KICAgIH0NCn0=</c:code>
       </c:module>
     </c:modules>
     <oc:media>
