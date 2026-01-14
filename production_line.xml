@@ -2,11 +2,11 @@
 <m:model version="26" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:m="http://cia.his.se/facts/m" xmlns:oc="http://cia.his.se/facts/oc" xmlns:v="http://cia.his.se/facts/v" xmlns:n="http://cia.his.se/facts/n" xmlns:l="http://cia.his.se/facts/l" xmlns:f="http://cia.his.se/facts/f" xmlns:t="http://cia.his.se/facts/t" xmlns:a="http://cia.his.se/facts/a" xmlns:o="http://cia.his.se/facts/o" xmlns:idi="http://cia.his.se/facts/idi" xmlns:c="http://cia.his.se/facts/c" xsi:schemaLocation="http://cia.his.se/facts/m file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/model.xsd http://cia.his.se/facts/oc file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/object_commons.xsd http://cia.his.se/facts/v file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/variants.xsd http://cia.his.se/facts/n file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/nodes.xsd http://cia.his.se/facts/l file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/logics.xsd http://cia.his.se/facts/f file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/flows.xsd http://cia.his.se/facts/t file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/templates.xsd http://cia.his.se/facts/a file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/application.xsd http://cia.his.se/facts/o file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/optimization.xsd http://cia.his.se/facts/idi file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/input_data_interface.xsd">
   <m:settings>
     <m:start>2010-01-04T00:00:00</m:start>
-    <m:duration>21:00:00:00</m:duration>
+    <m:duration>7:00:00:00</m:duration>
     <m:warm_up>1:00:00:00</m:warm_up>
     <m:replications>5</m:replications>
     <m:output_options>
-      <m:shifting_bottleneck>true</m:shifting_bottleneck>
+      <m:shifting_bottleneck>false</m:shifting_bottleneck>
     </m:output_options>
     <m:visuals>
       <m:link_labels>true</m:link_labels>
@@ -14,33 +14,17 @@
       <m:link_msg>false</m:link_msg>
     </m:visuals>
   </m:settings>
-  <o:settings start="2010-01-04 00:00:00" simHorizon="21:00:00:00" simWarmUp="1:00:00:00" replications="5">
+  <o:settings start="2010-01-04 00:00:00" simHorizon="7:00:00:00" simWarmUp="1:00:00:00" replications="5">
     <o:inputs />
     <o:outputs />
     <o:objectives />
     <o:custom_outputs />
     <o:inputConstraints />
-    <o:algorithm name="Latin Hypercube Sampling">
-      <o:setting name="Maximum number of evaluations" value="5000" />
-      <o:setting name="Maximum allowed time (seconds)" value="0" />
-      <o:setting name="Include input extremes" value="True" />
-      <o:setting name="Include experiments" value="" />
-      <o:setting name="Repair linear constraints" value="True" />
-      <o:setting name="Hypervolume reference point" value="" />
-      <o:setting name="Store all replications" value="False" />
-      <o:setting name="Number of points" value="1000" />
-      <o:setting name="Seed" value="1" />
-    </o:algorithm>
   </o:settings>
   <m:experiments>
-    <m:experiment optId="197" />
-    <m:experiment optId="198" />
-    <m:experiment optId="199" />
-    <m:experiment optId="200" />
-    <m:experiment optId="201" />
-    <m:experiment optId="202" />
-    <m:experiment optId="203" />
-    <m:experiment optId="204" />
+    <m:experiment optId="207" />
+    <m:experiment optId="226" />
+    <m:experiment optId="227" />
   </m:experiments>
   <a:settings />
   <t:templates />
@@ -59,7 +43,7 @@
   </m:skills>
   <n:component>
     <n:nodes>
-      <n:node id="node:2" name="BlowMolder" xpos="580" ypos="560">
+      <n:node id="node:2" name="BlowMolder" xpos="500" ypos="540">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -167,7 +151,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:4" name="Packer" xpos="940" ypos="560">
+      <n:node id="node:4" name="Packer" xpos="860" ypos="540">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -245,7 +229,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:5" name="Filler" xpos="840" ypos="560">
+      <n:node id="node:5" name="Filler" xpos="760" ypos="540">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -353,7 +337,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:8" name="Warehouse" xpos="1180" ypos="560">
+      <n:node id="node:8" name="Warehouse" xpos="1100" ypos="540">
         <n:exit>
           <n:sink>
             <oc:disturbances>
@@ -381,7 +365,7 @@
           </n:sink>
         </n:exit>
       </n:node>
-      <n:node id="node:10" name="AirConveyor" xpos="720" ypos="560">
+      <n:node id="node:10" name="AirConveyor" xpos="640" ypos="540">
         <n:buffer>
           <oc:disturbances>
             <oc:disturbance>
@@ -411,7 +395,7 @@
           <n:dispatch rule="FIFO" />
         </n:buffer>
       </n:node>
-      <n:node id="node:41" name="Palletizer" xpos="1060" ypos="560">
+      <n:node id="node:41" name="Palletizer" xpos="980" ypos="540">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -501,7 +485,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:57" name="Source" xpos="420" ypos="560">
+      <n:node id="node:57" name="Source" xpos="340" ypos="540">
         <n:entrance>
           <n:source>
             <oc:disturbances>
