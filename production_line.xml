@@ -2,7 +2,7 @@
 <m:model version="26" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:m="http://cia.his.se/facts/m" xmlns:oc="http://cia.his.se/facts/oc" xmlns:v="http://cia.his.se/facts/v" xmlns:n="http://cia.his.se/facts/n" xmlns:l="http://cia.his.se/facts/l" xmlns:f="http://cia.his.se/facts/f" xmlns:t="http://cia.his.se/facts/t" xmlns:a="http://cia.his.se/facts/a" xmlns:o="http://cia.his.se/facts/o" xmlns:idi="http://cia.his.se/facts/idi" xmlns:c="http://cia.his.se/facts/c" xsi:schemaLocation="http://cia.his.se/facts/m file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/model.xsd http://cia.his.se/facts/oc file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/object_commons.xsd http://cia.his.se/facts/v file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/variants.xsd http://cia.his.se/facts/n file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/nodes.xsd http://cia.his.se/facts/l file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/logics.xsd http://cia.his.se/facts/f file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/flows.xsd http://cia.his.se/facts/t file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/templates.xsd http://cia.his.se/facts/a file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/application.xsd http://cia.his.se/facts/o file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/optimization.xsd http://cia.his.se/facts/idi file:///C:/Users/sveb/My_Work/My_Projects/FACTS_2/Development/XML/Schemas/input_data_interface.xsd">
   <m:settings>
     <m:start>2010-01-04T00:00:00</m:start>
-    <m:duration>7:00:00:00</m:duration>
+    <m:duration>21:00:00:00</m:duration>
     <m:warm_up>1:00:00:00</m:warm_up>
     <m:replications>5</m:replications>
     <m:output_options>
@@ -14,15 +14,33 @@
       <m:link_msg>false</m:link_msg>
     </m:visuals>
   </m:settings>
-  <o:settings start="2010-01-04 00:00:00" simHorizon="7:00:00:00" simWarmUp="1:00:00:00" replications="5">
+  <o:settings start="2010-01-04 00:00:00" simHorizon="21:00:00:00" simWarmUp="1:00:00:00" replications="5">
     <o:inputs />
     <o:outputs />
     <o:objectives />
     <o:custom_outputs />
     <o:inputConstraints />
+    <o:algorithm name="Latin Hypercube Sampling">
+      <o:setting name="Maximum number of evaluations" value="5000" />
+      <o:setting name="Maximum allowed time (seconds)" value="0" />
+      <o:setting name="Include input extremes" value="True" />
+      <o:setting name="Include experiments" value="" />
+      <o:setting name="Repair linear constraints" value="True" />
+      <o:setting name="Hypervolume reference point" value="" />
+      <o:setting name="Store all replications" value="False" />
+      <o:setting name="Number of points" value="1000" />
+      <o:setting name="Seed" value="1" />
+    </o:algorithm>
   </o:settings>
   <m:experiments>
-    <m:experiment optId="130" />
+    <m:experiment optId="197" />
+    <m:experiment optId="198" />
+    <m:experiment optId="199" />
+    <m:experiment optId="200" />
+    <m:experiment optId="201" />
+    <m:experiment optId="202" />
+    <m:experiment optId="203" />
+    <m:experiment optId="204" />
   </m:experiments>
   <a:settings />
   <t:templates />
@@ -41,130 +59,7 @@
   </m:skills>
   <n:component>
     <n:nodes>
-      <n:node id="node:1" name="Source1" xpos="560" ypos="580">
-        <n:entrance>
-          <n:source>
-            <oc:disturbances>
-              <oc:disturbance>
-                <oc:percent name="Fail1" timeReference="simulation">
-                  <oc:availability data_type="real">
-                    <oc:value>100.0</oc:value>
-                  </oc:availability>
-                  <oc:mttr data_type="time">
-                    <oc:value>1:00</oc:value>
-                  </oc:mttr>
-                </oc:percent>
-              </oc:disturbance>
-            </oc:disturbances>
-            <n:exit_strategy rule="cyclic" />
-            <n:accumulating data_type="boolean">
-              <oc:value>true</oc:value>
-            </n:accumulating>
-            <oc:creation>
-              <oc:inter_arrival_time>
-                <oc:distribution>
-                  <oc:constant>
-                    <oc:value data_type="time">
-                      <oc:value>0</oc:value>
-                    </oc:value>
-                  </oc:constant>
-                </oc:distribution>
-                <oc:limit>
-                  <oc:time>
-                    <oc:start>
-                      <oc:distribution>
-                        <oc:constant>
-                          <oc:value data_type="time">
-                            <oc:value>0</oc:value>
-                          </oc:value>
-                        </oc:constant>
-                      </oc:distribution>
-                    </oc:start>
-                    <oc:stop>
-                      <oc:distribution>
-                        <oc:constant>
-                          <oc:value data_type="time">
-                            <oc:value>0</oc:value>
-                          </oc:value>
-                        </oc:constant>
-                      </oc:distribution>
-                    </oc:stop>
-                  </oc:time>
-                </oc:limit>
-                <oc:variants>
-                  <oc:sequence cyclic="true" batch="true" sequence_batch="true">
-                    <oc:table>
-                      <oc:cells>
-                        <oc:cell row="1" col="1" data_type="string">
-                          <oc:value>var1</oc:value>
-                        </oc:cell>
-                        <oc:cell row="1" col="2" data_type="distribution">
-                          <oc:distribution>
-                            <oc:constant>
-                              <oc:value data_type="integer">
-                                <oc:value>10000</oc:value>
-                              </oc:value>
-                            </oc:constant>
-                          </oc:distribution>
-                        </oc:cell>
-                        <oc:cell row="2" col="1" data_type="string">
-                          <oc:value>var2</oc:value>
-                        </oc:cell>
-                        <oc:cell row="2" col="2" data_type="distribution">
-                          <oc:distribution>
-                            <oc:constant>
-                              <oc:value data_type="integer">
-                                <oc:value>5000</oc:value>
-                              </oc:value>
-                            </oc:constant>
-                          </oc:distribution>
-                        </oc:cell>
-                        <oc:cell row="3" col="1" data_type="string">
-                          <oc:value>var3</oc:value>
-                        </oc:cell>
-                        <oc:cell row="3" col="2" data_type="distribution">
-                          <oc:distribution>
-                            <oc:constant>
-                              <oc:value data_type="integer">
-                                <oc:value>5000</oc:value>
-                              </oc:value>
-                            </oc:constant>
-                          </oc:distribution>
-                        </oc:cell>
-                        <oc:cell row="4" col="1" data_type="string">
-                          <oc:value>var4</oc:value>
-                        </oc:cell>
-                        <oc:cell row="4" col="2" data_type="distribution">
-                          <oc:distribution>
-                            <oc:constant>
-                              <oc:value data_type="integer">
-                                <oc:value>10000</oc:value>
-                              </oc:value>
-                            </oc:constant>
-                          </oc:distribution>
-                        </oc:cell>
-                        <oc:cell row="5" col="1" data_type="string">
-                          <oc:value>var5</oc:value>
-                        </oc:cell>
-                        <oc:cell row="5" col="2" data_type="distribution">
-                          <oc:distribution>
-                            <oc:constant>
-                              <oc:value data_type="integer">
-                                <oc:value>5000</oc:value>
-                              </oc:value>
-                            </oc:constant>
-                          </oc:distribution>
-                        </oc:cell>
-                      </oc:cells>
-                    </oc:table>
-                  </oc:sequence>
-                </oc:variants>
-              </oc:inter_arrival_time>
-            </oc:creation>
-          </n:source>
-        </n:entrance>
-      </n:node>
-      <n:node id="node:2" name="BlowMolder" xpos="700" ypos="580">
+      <n:node id="node:2" name="BlowMolder" xpos="580" ypos="560">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -208,6 +103,16 @@
             </oc:distribution>
             <n:ept>none</n:ept>
           </n:process_time>
+          <n:setup_time>
+            <oc:distribution>
+              <oc:constant>
+                <oc:value data_type="time">
+                  <oc:value>0</oc:value>
+                </oc:value>
+              </oc:constant>
+            </oc:distribution>
+            <n:ept>none</n:ept>
+          </n:setup_time>
           <n:exit_strategy rule="cyclic" />
           <n:dispatch rule="FIFO" />
           <n:resources>
@@ -262,7 +167,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:4" name="Packer" xpos="1060" ypos="580">
+      <n:node id="node:4" name="Packer" xpos="940" ypos="560">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -340,7 +245,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:5" name="Filler" xpos="960" ypos="580">
+      <n:node id="node:5" name="Filler" xpos="840" ypos="560">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -448,7 +353,7 @@
           </n:resources>
         </n:operation>
       </n:node>
-      <n:node id="node:8" name="Warehouse" xpos="1300" ypos="580">
+      <n:node id="node:8" name="Warehouse" xpos="1180" ypos="560">
         <n:exit>
           <n:sink>
             <oc:disturbances>
@@ -476,7 +381,7 @@
           </n:sink>
         </n:exit>
       </n:node>
-      <n:node id="node:10" name="AirConveyor" xpos="840" ypos="580">
+      <n:node id="node:10" name="AirConveyor" xpos="720" ypos="560">
         <n:buffer>
           <oc:disturbances>
             <oc:disturbance>
@@ -506,7 +411,7 @@
           <n:dispatch rule="FIFO" />
         </n:buffer>
       </n:node>
-      <n:node id="node:41" name="Palletizer" xpos="1180" ypos="580">
+      <n:node id="node:41" name="Palletizer" xpos="1060" ypos="560">
         <n:operation>
           <oc:disturbances>
             <oc:disturbance>
@@ -596,26 +501,144 @@
           </n:resources>
         </n:operation>
       </n:node>
+      <n:node id="node:57" name="Source" xpos="420" ypos="560">
+        <n:entrance>
+          <n:source>
+            <oc:disturbances>
+              <oc:disturbance>
+                <oc:percent name="Fail1" timeReference="simulation">
+                  <oc:availability data_type="real">
+                    <oc:value>100.0</oc:value>
+                  </oc:availability>
+                  <oc:mttr data_type="time">
+                    <oc:value>1:00</oc:value>
+                  </oc:mttr>
+                </oc:percent>
+              </oc:disturbance>
+            </oc:disturbances>
+            <n:exit_strategy rule="cyclic" />
+            <n:accumulating data_type="boolean">
+              <oc:value>true</oc:value>
+            </n:accumulating>
+            <oc:creation>
+              <oc:inter_arrival_time>
+                <oc:distribution>
+                  <oc:constant>
+                    <oc:value data_type="time">
+                      <oc:value>0</oc:value>
+                    </oc:value>
+                  </oc:constant>
+                </oc:distribution>
+                <oc:limit>
+                  <oc:time>
+                    <oc:start>
+                      <oc:distribution>
+                        <oc:constant>
+                          <oc:value data_type="time">
+                            <oc:value>0</oc:value>
+                          </oc:value>
+                        </oc:constant>
+                      </oc:distribution>
+                    </oc:start>
+                    <oc:stop>
+                      <oc:distribution>
+                        <oc:constant>
+                          <oc:value data_type="time">
+                            <oc:value>0</oc:value>
+                          </oc:value>
+                        </oc:constant>
+                      </oc:distribution>
+                    </oc:stop>
+                  </oc:time>
+                </oc:limit>
+                <oc:variants>
+                  <oc:sequence cyclic="true" batch="true" sequence_batch="true">
+                    <oc:table>
+                      <oc:cells>
+                        <oc:cell row="1" col="1" data_type="string">
+                          <oc:value>var1</oc:value>
+                        </oc:cell>
+                        <oc:cell row="1" col="2" data_type="distribution">
+                          <oc:distribution>
+                            <oc:constant>
+                              <oc:value data_type="integer">
+                                <oc:value>5000000</oc:value>
+                              </oc:value>
+                            </oc:constant>
+                          </oc:distribution>
+                        </oc:cell>
+                        <oc:cell row="2" col="1" data_type="string">
+                          <oc:value>var4</oc:value>
+                        </oc:cell>
+                        <oc:cell row="2" col="2" data_type="distribution">
+                          <oc:distribution>
+                            <oc:constant>
+                              <oc:value data_type="integer">
+                                <oc:value>5000000</oc:value>
+                              </oc:value>
+                            </oc:constant>
+                          </oc:distribution>
+                        </oc:cell>
+                        <oc:cell row="3" col="1" data_type="string">
+                          <oc:value>var5</oc:value>
+                        </oc:cell>
+                        <oc:cell row="3" col="2" data_type="distribution">
+                          <oc:distribution>
+                            <oc:constant>
+                              <oc:value data_type="integer">
+                                <oc:value>2500000</oc:value>
+                              </oc:value>
+                            </oc:constant>
+                          </oc:distribution>
+                        </oc:cell>
+                        <oc:cell row="4" col="1" data_type="string">
+                          <oc:value>var2</oc:value>
+                        </oc:cell>
+                        <oc:cell row="4" col="2" data_type="distribution">
+                          <oc:distribution>
+                            <oc:constant>
+                              <oc:value data_type="integer">
+                                <oc:value>2500000</oc:value>
+                              </oc:value>
+                            </oc:constant>
+                          </oc:distribution>
+                        </oc:cell>
+                        <oc:cell row="5" col="1" data_type="string">
+                          <oc:value>var3</oc:value>
+                        </oc:cell>
+                        <oc:cell row="5" col="2" data_type="distribution">
+                          <oc:distribution>
+                            <oc:constant>
+                              <oc:value data_type="integer">
+                                <oc:value>2500000</oc:value>
+                              </oc:value>
+                            </oc:constant>
+                          </oc:distribution>
+                        </oc:cell>
+                      </oc:cells>
+                    </oc:table>
+                  </oc:sequence>
+                </oc:variants>
+              </oc:inter_arrival_time>
+            </oc:creation>
+          </n:source>
+        </n:entrance>
+      </n:node>
     </n:nodes>
     <l:logics />
     <f:flows>
-      <f:flow name="Buffer" id="flow:1">
+      <f:flow name="Dedault Flows" id="flow:1">
         <f:variants>
           <oc:reference idref="var1" />
-          <oc:reference idref="var2" />
-          <oc:reference idref="var3" />
           <oc:reference idref="var4" />
           <oc:reference idref="var5" />
+          <oc:reference idref="var2" />
+          <oc:reference idref="var3" />
         </f:variants>
         <f:nodes>
-          <f:node idref="node:1">
-            <f:successors>
-              <oc:reference idref="node:2" active="True" weight="1" />
-            </f:successors>
-          </f:node>
           <f:node idref="node:2">
             <f:predecessors>
-              <oc:reference idref="node:1" active="True" weight="1" />
+              <oc:reference idref="node:57" active="True" weight="1" />
             </f:predecessors>
             <f:successors>
               <oc:reference idref="node:10" active="True" weight="1" />
@@ -658,6 +681,11 @@
               <oc:reference idref="node:41" active="True" weight="1" />
             </f:predecessors>
           </f:node>
+          <f:node idref="node:57">
+            <f:successors>
+              <oc:reference idref="node:2" active="True" weight="1" />
+            </f:successors>
+          </f:node>
         </f:nodes>
       </f:flow>
     </f:flows>
@@ -667,10 +695,10 @@
         <c:code>I2luY2x1ZGUgPHhzaW0uaD4NCiNpbmNsdWRlIDx0b29scy5ocHA+DQojaW5jbHVkZSA8c3RyaW5nPg0KDQp1c2luZyBuYW1lc3BhY2UgeHNpbTsNCnVzaW5nIG5hbWVzcGFjZSBzdGQ7DQoNCmNsYXNzIEJsb3dlclNldHVwIDogcHVibGljIE9wZXJhdGlvbiB7DQogICAgcHJpdmF0ZToNCiAgICAgICAgc3RyaW5nIF9sYXN0VmFyaWFudE5hbWU7IA0KICAgICAgICBzdHJpbmcgX3BlbmRpbmdOZXdWYXJpYW50Ow0KDQogICAgcHVibGljOg0KICAgICAgICBCbG93ZXJTZXR1cCgpIDogT3BlcmF0aW9uKCksIF9sYXN0VmFyaWFudE5hbWUoIk5vbmUiKSwgX3BlbmRpbmdOZXdWYXJpYW50KCJOb25lIikge30NCg0KICAgICAgICB2b2lkIGluaXQoKSBvdmVycmlkZSB7DQogICAgICAgICAgICBPcGVyYXRpb246OmluaXQoKTsNCiAgICAgICAgICAgIF9sYXN0VmFyaWFudE5hbWUgPSAiTm9uZSI7DQogICAgICAgICAgICBfcGVuZGluZ05ld1ZhcmlhbnQgPSAiTm9uZSI7DQogICAgICAgIH0NCg0KICAgICAgICB2b2lkIGZpbmFsaXplKCkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgT3BlcmF0aW9uOjpmaW5hbGl6ZSgpOw0KICAgICAgICB9DQoNCiAgICAgICAgZG91YmxlIGNhbGN1bGF0ZVNldHVwVGltZSgpIHsNCiAgICAgICAgICAgIHN0cmluZyBvbGRWID0gX2xhc3RWYXJpYW50TmFtZTsNCiAgICAgICAgICAgIHN0cmluZyBuZXdWID0gX3BlbmRpbmdOZXdWYXJpYW50Ow0KDQogICAgICAgICAgICBpZihvbGRWID09ICJOb25lIiB8fCBvbGRWID09IG5ld1YpIHJldHVybiAwLjA7DQoNCiAgICAgICAgICAgIHRyeSB7DQogICAgICAgICAgICAgICAgaWYgKEdldFNpemVGcm9tVmFyaWFudChvbGRWKSAhPSBHZXRTaXplRnJvbVZhcmlhbnQobmV3VikpIHsNCiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIDcyMDAuMDsgLy8gMiBIb3VycyBmb3IgbW9sZCBjaGFuZ2UNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9IGNhdGNoICguLi4pIHsgcmV0dXJuIDAuMDsgfQ0KDQogICAgICAgICAgICByZXR1cm4gMC4wOyANCiAgICAgICAgfQ0KDQogICAgICAgIGJvb2wgZW50ZXIoRW50aXR5ICplbnRpdHksIE5vZGUqIGRlcGFydHVyZSkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgDQogICAgICAgICAgICBpZiAoc2V0dXAoKSkgcmV0dXJuIGZhbHNlOw0KDQogICAgICAgICAgICBpZihlbnRpdHktPnZhcmlhbnQoKSl7DQogICAgICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gZW50aXR5LT52YXJpYW50KCktPm5hbWUoKTsNCiAgICAgICAgICAgIH0gZWxzZSB7DQogICAgICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gIlVua25vd24iOw0KICAgICAgICAgICAgfQ0KDQogICAgICAgICAgICBpZihPcGVyYXRpb246OmVudGVyKGVudGl0eSwgZGVwYXJ0dXJlKSl7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgZG91YmxlIGR1cmF0aW9uID0gY2FsY3VsYXRlU2V0dXBUaW1lKCk7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgaWYgKGR1cmF0aW9uID4gMCkgew0KICAgICAgICAgICAgICAgICAgICBkb19zZXR1cChzaW0oKS0+bm93KCkgKyBkdXJhdGlvbik7DQogICAgICAgICAgICAgICAgfQ0KDQogICAgICAgICAgICAgICAgX2xhc3RWYXJpYW50TmFtZSA9IF9wZW5kaW5nTmV3VmFyaWFudDsNCiAgICAgICAgICAgICAgICByZXR1cm4gdHJ1ZTsNCiAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgcmV0dXJuIGZhbHNlOw0KICAgICAgICB9DQp9Ow==</c:code>
       </c:module>
       <c:module name="filler_setup.hpp" path="">
-        <c:code>I2luY2x1ZGUgPHhzaW0uaD4NCiNpbmNsdWRlIDx0b29scy5ocHA+DQojaW5jbHVkZSA8c3RyaW5nPg0KDQp1c2luZyBuYW1lc3BhY2UgeHNpbTsNCnVzaW5nIG5hbWVzcGFjZSBzdGQ7DQoNCmNsYXNzIEZpbGVyU2V0dXAgOiBwdWJsaWMgT3BlcmF0aW9uIHsNCiAgICBwcml2YXRlOg0KICAgICAgICBzdHJpbmcgX2xhc3RWYXJpYW50TmFtZTsgDQogICAgICAgIHN0cmluZyBfcGVuZGluZ05ld1ZhcmlhbnQ7DQoNCiAgICBwdWJsaWM6DQogICAgICAgIEZpbGVyU2V0dXAoKSA6IE9wZXJhdGlvbigpLCBfbGFzdFZhcmlhbnROYW1lKCJOb25lIiksIF9wZW5kaW5nTmV3VmFyaWFudCgiTm9uZSIpIHt9DQoNCiAgICAgICAgdm9pZCBpbml0KCkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgT3BlcmF0aW9uOjppbml0KCk7DQogICAgICAgICAgICBfbGFzdFZhcmlhbnROYW1lID0gIk5vbmUiOw0KICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gIk5vbmUiOw0KICAgICAgICB9DQoNCiAgICAgICAgdm9pZCBmaW5hbGl6ZSgpIG92ZXJyaWRlIHsNCiAgICAgICAgICAgIE9wZXJhdGlvbjo6ZmluYWxpemUoKTsNCiAgICAgICAgfQ0KDQogICAgICAgIGRvdWJsZSBjYWxjdWxhdGVTZXR1cFRpbWUoKSB7DQogICAgICAgICAgICBzdHJpbmcgb2xkViA9IF9sYXN0VmFyaWFudE5hbWU7DQogICAgICAgICAgICBzdHJpbmcgbmV3ViA9IF9wZW5kaW5nTmV3VmFyaWFudDsNCg0KICAgICAgICAgICAgaWYob2xkViA9PSAiTm9uZSIgfHwgb2xkViA9PSBuZXdWKSByZXR1cm4gMC4wOw0KDQogICAgICAgICAgICB0cnkgew0KICAgICAgICAgICAgICAgIGlmIChHZXRTaXplRnJvbVZhcmlhbnQob2xkVikgIT0gR2V0U2l6ZUZyb21WYXJpYW50KG5ld1YpKSB7DQogICAgICAgICAgICAgICAgICAgIHJldHVybiA3MjAwLjA7IA0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIH0gY2F0Y2ggKC4uLikgeyByZXR1cm4gMC4wOyB9DQoNCiAgICAgICAgICAgIGRvdWJsZSBwZW5hbHR5ID0gMzAwLjA7IC8vIERlZmF1bHQNCiAgICAgICAgICAgIHRyeSB7DQogICAgICAgICAgICAgICAgRmxhdm9yVmFyaWFudCBvbGRGID0gR2V0Rmxhdm9yVmFyaWFudChvbGRWKTsNCiAgICAgICAgICAgICAgICBGbGF2b3JWYXJpYW50IG5ld0YgPSBHZXRGbGF2b3JWYXJpYW50KG5ld1YpOw0KDQogICAgICAgICAgICAgICAgaWYgKG9sZEYgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSAmJiBuZXdGID09IEZsYXZvclZhcmlhbnQ6OlNQUklURSkgcGVuYWx0eSA9IDEyMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGID09IEZsYXZvclZhcmlhbnQ6OkNPS0UgJiYgbmV3RiA9PSBGbGF2b3JWYXJpYW50OjpXQVRFUikgcGVuYWx0eSA9IDM2MDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGID09IEZsYXZvclZhcmlhbnQ6OlNQUklURSAmJiBuZXdGID09IEZsYXZvclZhcmlhbnQ6OldBVEVSKSBwZW5hbHR5ID0gMzAwMC4wOw0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKG9sZEYgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFICYmIG5ld0YgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSkgcGVuYWx0eSA9IDEyMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGID09IEZsYXZvclZhcmlhbnQ6OldBVEVSICYmIG5ld0YgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSkgcGVuYWx0eSA9IDEyMDAuMDsNCiAgICAgICAgICAgICAgICBlbHNlIGlmIChvbGRGID09IEZsYXZvclZhcmlhbnQ6OldBVEVSICYmIG5ld0YgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFKSBwZW5hbHR5ID0gMTIwMC4wOw0KICAgICAgICAgICAgfSBjYXRjaCAoLi4uKSB7IHBlbmFsdHkgPSAzMDAuMDsgfQ0KDQogICAgICAgICAgICByZXR1cm4gcGVuYWx0eTsNCiAgICAgICAgfQ0KDQogICAgICAgIGJvb2wgZW50ZXIoRW50aXR5ICplbnRpdHksIE5vZGUqIGRlcGFydHVyZSkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgDQogICAgICAgICAgICBpZiAoc2V0dXAoKSkgcmV0dXJuIGZhbHNlOw0KDQogICAgICAgICAgICBpZihlbnRpdHktPnZhcmlhbnQoKSl7DQogICAgICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gZW50aXR5LT52YXJpYW50KCktPm5hbWUoKTsNCiAgICAgICAgICAgIH0gZWxzZSB7DQogICAgICAgICAgICAgICAgX3BlbmRpbmdOZXdWYXJpYW50ID0gIlVua25vd24iOw0KICAgICAgICAgICAgfQ0KDQogICAgICAgICAgICBpZihPcGVyYXRpb246OmVudGVyKGVudGl0eSwgZGVwYXJ0dXJlKSl7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgZG91YmxlIGR1cmF0aW9uID0gY2FsY3VsYXRlU2V0dXBUaW1lKCk7DQogICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgaWYgKGR1cmF0aW9uID4gMCkgew0KICAgICAgICAgICAgICAgICAgICBkb19zZXR1cChzaW0oKS0+bm93KCkgKyBkdXJhdGlvbik7DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIF9sYXN0VmFyaWFudE5hbWUgPSBfcGVuZGluZ05ld1ZhcmlhbnQ7DQogICAgICAgICAgICAgICAgcmV0dXJuIHRydWU7DQogICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIHJldHVybiBmYWxzZTsNCiAgICAgICAgfQ0KfTsNCg==</c:code>
+        <c:code>I2luY2x1ZGUgPHhzaW0uaD4NCiNpbmNsdWRlIDx0b29scy5ocHA+DQojaW5jbHVkZSA8c3RyaW5nPg0KDQp1c2luZyBuYW1lc3BhY2UgeHNpbTsNCnVzaW5nIG5hbWVzcGFjZSBzdGQ7DQoNCmNsYXNzIEZpbGVyU2V0dXAgOiBwdWJsaWMgT3BlcmF0aW9uIHsNCiAgICBwcml2YXRlOg0KICAgICAgICBzdHJpbmcgX2xhc3RWYXJpYW50TmFtZTsgDQogICAgICAgIHN0cmluZyBfcGVuZGluZ05ld1ZhcmlhbnQ7DQogICAgICAgIGludCBfc2V0dXBDb3VudDsNCiAgICAgICAgZG91YmxlIF90b3RhbFNldHVwVGltZTsNCg0KICAgIHB1YmxpYzoNCiAgICAgICAgRmlsZXJTZXR1cCgpIDogT3BlcmF0aW9uKCksIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgX2xhc3RWYXJpYW50TmFtZSgiTm9uZSIpLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF9wZW5kaW5nTmV3VmFyaWFudCgiTm9uZSIpLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgX3NldHVwQ291bnQoMCksDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBfdG90YWxTZXR1cFRpbWUoMC4wKSB7fQ0KDQogICAgICAgIHZvaWQgaW5pdCgpIG92ZXJyaWRlIHsNCiAgICAgICAgICAgIE9wZXJhdGlvbjo6aW5pdCgpOw0KICAgICAgICAgICAgX2xhc3RWYXJpYW50TmFtZSA9ICJOb25lIjsNCiAgICAgICAgICAgIF9wZW5kaW5nTmV3VmFyaWFudCA9ICJOb25lIjsNCiAgICAgICAgICAgIF9zZXR1cENvdW50ID0gMDsNCiAgICAgICAgICAgIF90b3RhbFNldHVwVGltZSA9IDAuMDsNCiAgICAgICAgfQ0KDQogICAgICAgIHZvaWQgZmluYWxpemUoKSBvdmVycmlkZSB7DQogICAgICAgICAgICBPcGVyYXRpb246OmZpbmFsaXplKCk7DQogICAgICAgIH0NCg0KICAgICAgICB2b2lkIGRlZmluZV9vdXRwdXRzKCkgb3ZlcnJpZGUgew0KICAgICAgICAgICAgT3BlcmF0aW9uOjpkZWZpbmVfb3V0cHV0cygpOw0KICAgICAgICAgICAgZGVmaW5lX291dHB1dCgiU2V0dXBDb3VudCIsIFs9XSB7IHJldHVybiAoZG91YmxlKV9zZXR1cENvdW50OyB9KTsNCiAgICAgICAgICAgIGRlZmluZV9vdXRwdXQoIlRvdGFsU2V0dXBIb3VycyIsIFs9XSB7IHJldHVybiBfdG90YWxTZXR1cFRpbWUgLyAzNjAwLjA7IH0pOw0KICAgICAgICB9DQoNCiAgICAgICAgZG91YmxlIGNhbGN1bGF0ZVNldHVwVGltZSgpIHsNCiAgICAgICAgICAgIHN0cmluZyBvbGRWID0gX2xhc3RWYXJpYW50TmFtZTsNCiAgICAgICAgICAgIHN0cmluZyBuZXdWID0gX3BlbmRpbmdOZXdWYXJpYW50Ow0KDQogICAgICAgICAgICBpZihvbGRWID09ICJOb25lIiB8fCBvbGRWID09IG5ld1YpIHJldHVybiAwLjA7DQoNCiAgICAgICAgICAgIHRyeSB7DQogICAgICAgICAgICAgICAgaWYgKEdldFNpemVGcm9tVmFyaWFudChvbGRWKSAhPSBHZXRTaXplRnJvbVZhcmlhbnQobmV3VikpIHsNCiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIDcyMDAuMDsgDQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgfSBjYXRjaCAoLi4uKSB7IHJldHVybiAwLjA7IH0NCg0KICAgICAgICAgICAgZG91YmxlIHBlbmFsdHkgPSAzMDAuMDsgLy8gRGVmYXVsdA0KICAgICAgICAgICAgdHJ5IHsNCiAgICAgICAgICAgICAgICBGbGF2b3JWYXJpYW50IG9sZEYgPSBHZXRGbGF2b3JWYXJpYW50KG9sZFYpOw0KICAgICAgICAgICAgICAgIEZsYXZvclZhcmlhbnQgbmV3RiA9IEdldEZsYXZvclZhcmlhbnQobmV3Vik7DQoNCiAgICAgICAgICAgICAgICBpZiAob2xkRiA9PSBGbGF2b3JWYXJpYW50OjpDT0tFICYmIG5ld0YgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFKSBwZW5hbHR5ID0gMTIwMC4wOw0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKG9sZEYgPT0gRmxhdm9yVmFyaWFudDo6Q09LRSAmJiBuZXdGID09IEZsYXZvclZhcmlhbnQ6OldBVEVSKSBwZW5hbHR5ID0gMzYwMC4wOw0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKG9sZEYgPT0gRmxhdm9yVmFyaWFudDo6U1BSSVRFICYmIG5ld0YgPT0gRmxhdm9yVmFyaWFudDo6V0FURVIpIHBlbmFsdHkgPSAzNjAwLjA7DQogICAgICAgICAgICAgICAgZWxzZSBpZiAob2xkRiA9PSBGbGF2b3JWYXJpYW50OjpTUFJJVEUgJiYgbmV3RiA9PSBGbGF2b3JWYXJpYW50OjpDT0tFKSBwZW5hbHR5ID0gMTIwMC4wOw0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKG9sZEYgPT0gRmxhdm9yVmFyaWFudDo6V0FURVIgJiYgbmV3RiA9PSBGbGF2b3JWYXJpYW50OjpDT0tFKSBwZW5hbHR5ID0gMTIwMC4wOw0KICAgICAgICAgICAgICAgIGVsc2UgaWYgKG9sZEYgPT0gRmxhdm9yVmFyaWFudDo6V0FURVIgJiYgbmV3RiA9PSBGbGF2b3JWYXJpYW50OjpTUFJJVEUpIHBlbmFsdHkgPSAxMjAwLjA7DQogICAgICAgICAgICB9IGNhdGNoICguLi4pIHsgcGVuYWx0eSA9IDMwMC4wOyB9DQoNCiAgICAgICAgICAgIHJldHVybiBwZW5hbHR5Ow0KICAgICAgICB9DQoNCiAgICAgICAgYm9vbCBlbnRlcihFbnRpdHkgKmVudGl0eSwgTm9kZSogZGVwYXJ0dXJlKSBvdmVycmlkZSB7DQogICAgICAgICAgICANCiAgICAgICAgICAgIGlmIChzZXR1cCgpKSByZXR1cm4gZmFsc2U7DQoNCiAgICAgICAgICAgIGlmKGVudGl0eS0+dmFyaWFudCgpKXsNCiAgICAgICAgICAgICAgICBfcGVuZGluZ05ld1ZhcmlhbnQgPSBlbnRpdHktPnZhcmlhbnQoKS0+bmFtZSgpOw0KICAgICAgICAgICAgfSBlbHNlIHsNCiAgICAgICAgICAgICAgICBfcGVuZGluZ05ld1ZhcmlhbnQgPSAiVW5rbm93biI7DQogICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIGlmKE9wZXJhdGlvbjo6ZW50ZXIoZW50aXR5LCBkZXBhcnR1cmUpKXsNCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICBkb3VibGUgZHVyYXRpb24gPSBjYWxjdWxhdGVTZXR1cFRpbWUoKTsNCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICBpZiAoZHVyYXRpb24gPiAwKSB7DQogICAgICAgICAgICAgICAgICAgIGRvX3NldHVwKHNpbSgpLT5ub3coKSArIGR1cmF0aW9uKTsNCiAgICAgICAgICAgICAgICAgICAgLy8gc2ltKCktPmxvZygpIDw8ICJMQVNUX1Y6ICIgPDwgX2xhc3RWYXJpYW50TmFtZSA8PCAiICAgIE5FV19WOiAiIDw8IF9wZW5kaW5nTmV3VmFyaWFudCA8PCBlbmRsOyANCiAgICAgICAgICAgICAgICAgICAgX3NldHVwQ291bnQrKzsNCiAgICAgICAgICAgICAgICAgICAgX3RvdGFsU2V0dXBUaW1lICs9IGR1cmF0aW9uOw0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICBfbGFzdFZhcmlhbnROYW1lID0gX3BlbmRpbmdOZXdWYXJpYW50Ow0KICAgICAgICAgICAgICAgIHJldHVybiB0cnVlOw0KICAgICAgICAgICAgfQ0KDQogICAgICAgICAgICByZXR1cm4gZmFsc2U7DQogICAgICAgIH0NCn07DQo=</c:code>
       </c:module>
       <c:module name="tools.hpp" path="">
-        <c:code>I2luY2x1ZGUgPHN0cmluZz4NCiNpbmNsdWRlIDx4c2ltLmg+DQojcHJhZ21hIG9uY2UNCg0KdXNpbmcgbmFtZXNwYWNlIHN0ZDsNCnVzaW5nIG5hbWVzcGFjZSB4c2ltOw0KDQplbnVtIEZsYXZvclZhcmlhbnQgew0KICAgIENPS0UsDQogICAgU1BSSVRFLA0KICAgIFdBVEVSLA0KICAgIEZMQVZPUl9VTktOT1dOIA0KfTsNCg0KZW51bSBjbGFzcyBTaXplVmFyaWFudCB7DQogICAgU2l6ZV8zMDBNTCwNCiAgICBTaXplXzFMLA0KICAgIFNpemVfVU5LTk9XTiAgIA0KfTsNCg0KaW5saW5lIFNpemVWYXJpYW50IEdldFNpemVGcm9tVmFyaWFudChjb25zdCBzdHJpbmcmIHZhcmlhbnROYW1lKSB7DQogICAgDQogICAgaWYgKHZhcmlhbnROYW1lLmVtcHR5KCkgfHwgdmFyaWFudE5hbWUgPT0gIk5vbmUiKSByZXR1cm4gU2l6ZVZhcmlhbnQ6OlNpemVfVU5LTk9XTjsNCg0KICAgIHNpemVfdCB1bmRlcnNjb3JlUG9zID0gdmFyaWFudE5hbWUuZmluZCgnXycpOw0KICAgIGlmICh1bmRlcnNjb3JlUG9zID09IHN0cmluZzo6bnBvcykgcmV0dXJuIFNpemVWYXJpYW50OjpTaXplX1VOS05PV047DQoNCiAgICBjaGFyIGZpcnN0RGlnaXQgPSB2YXJpYW50TmFtZVt1bmRlcnNjb3JlUG9zICsgMV07DQoNCiAgICBpZiAoZmlyc3REaWdpdCA9PSAnMycpIHsNCiAgICAgICAgcmV0dXJuIFNpemVWYXJpYW50OjpTaXplXzMwME1MOw0KICAgIH0NCiAgICBlbHNlIGlmIChmaXJzdERpZ2l0ID09ICcxJykgew0KICAgICAgICBjaGFyIHNlY29uZERpZ2l0ID0gdmFyaWFudE5hbWVbdW5kZXJzY29yZVBvcyArIDJdOw0KDQogICAgICAgIHJldHVybiBTaXplVmFyaWFudDo6U2l6ZV8xTDsgLy8gTXVzdCBiZSAiMUwiDQogICAgfQ0KDQogICAgcmV0dXJuIFNpemVWYXJpYW50OjpTaXplX1VOS05PV047DQp9DQoNCmlubGluZSBGbGF2b3JWYXJpYW50IEdldEZsYXZvclZhcmlhbnQoY29uc3Qgc3RyaW5nJiB2YXJpYW50TmFtZSkgew0KICAgIA0KICAgIGlmICh2YXJpYW50TmFtZS5lbXB0eSgpIHx8IHZhcmlhbnROYW1lID09ICJOb25lIikgcmV0dXJuIEZsYXZvclZhcmlhbnQ6OkZMQVZPUl9VTktOT1dOOw0KDQogICAgY2hhciBjID0gdmFyaWFudE5hbWVbMF07DQoNCiAgICBzd2l0Y2ggKGMpIHsNCiAgICAgICAgY2FzZSAnQyc6IA0KICAgICAgICBjYXNlICdjJzogDQogICAgICAgICAgICByZXR1cm4gRmxhdm9yVmFyaWFudDo6Q09LRTsNCiAgICAgICAgDQogICAgICAgIGNhc2UgJ1MnOiANCiAgICAgICAgY2FzZSAncyc6IA0KICAgICAgICAgICAgcmV0dXJuIEZsYXZvclZhcmlhbnQ6OlNQUklURTsNCiAgICAgICAgDQogICAgICAgIGNhc2UgJ1cnOiANCiAgICAgICAgY2FzZSAndyc6IA0KICAgICAgICAgICAgcmV0dXJuIEZsYXZvclZhcmlhbnQ6OldBVEVSOw0KICAgICAgICAgICAgDQogICAgICAgIGRlZmF1bHQ6IA0KICAgICAgICAgICAgcmV0dXJuIEZsYXZvclZhcmlhbnQ6OkZMQVZPUl9VTktOT1dOOw0KICAgIH0NCn0=</c:code>
+        <c:code>I2luY2x1ZGUgPHN0cmluZz4NCiNpbmNsdWRlIDx4c2ltLmg+DQojcHJhZ21hIG9uY2UNCg0KdXNpbmcgbmFtZXNwYWNlIHN0ZDsNCnVzaW5nIG5hbWVzcGFjZSB4c2ltOw0KDQplbnVtIEZsYXZvclZhcmlhbnQgew0KICAgIENPS0UsDQogICAgU1BSSVRFLA0KICAgIFdBVEVSLA0KICAgIEZMQVZPUl9VTktOT1dOIA0KfTsNCg0KZW51bSBjbGFzcyBTaXplVmFyaWFudCB7DQogICAgU2l6ZV8zMDBNTCwNCiAgICBTaXplXzFMLA0KICAgIFNpemVfVU5LTk9XTiAgIA0KfTsNCg0KaW5saW5lIFNpemVWYXJpYW50IEdldFNpemVGcm9tVmFyaWFudChjb25zdCBzdHJpbmcmIHZhcmlhbnROYW1lKSB7DQogICAgDQogICAgaWYgKHZhcmlhbnROYW1lLmVtcHR5KCkgfHwgdmFyaWFudE5hbWUgPT0gIk5vbmUiKSByZXR1cm4gU2l6ZVZhcmlhbnQ6OlNpemVfVU5LTk9XTjsNCg0KICAgIHNpemVfdCB1bmRlcnNjb3JlUG9zID0gdmFyaWFudE5hbWUuZmluZCgnXycpOw0KICAgIGlmICh1bmRlcnNjb3JlUG9zID09IHN0cmluZzo6bnBvcykgcmV0dXJuIFNpemVWYXJpYW50OjpTaXplX1VOS05PV047DQoNCiAgICBjaGFyIGZpcnN0RGlnaXQgPSB2YXJpYW50TmFtZVt1bmRlcnNjb3JlUG9zICsgMV07DQoNCiAgICBpZiAoZmlyc3REaWdpdCA9PSAnMycpIHsNCiAgICAgICAgcmV0dXJuIFNpemVWYXJpYW50OjpTaXplXzMwME1MOw0KICAgIH0NCiAgICBlbHNlIGlmIChmaXJzdERpZ2l0ID09ICcxJykgew0KICAgICAgICBjaGFyIHNlY29uZERpZ2l0ID0gdmFyaWFudE5hbWVbdW5kZXJzY29yZVBvcyArIDJdOw0KDQogICAgICAgIHJldHVybiBTaXplVmFyaWFudDo6U2l6ZV8xTDsNCiAgICB9DQoNCiAgICByZXR1cm4gU2l6ZVZhcmlhbnQ6OlNpemVfVU5LTk9XTjsNCn0NCg0KaW5saW5lIEZsYXZvclZhcmlhbnQgR2V0Rmxhdm9yVmFyaWFudChjb25zdCBzdHJpbmcmIHZhcmlhbnROYW1lKSB7DQogICAgDQogICAgaWYgKHZhcmlhbnROYW1lLmVtcHR5KCkgfHwgdmFyaWFudE5hbWUgPT0gIk5vbmUiKSByZXR1cm4gRmxhdm9yVmFyaWFudDo6RkxBVk9SX1VOS05PV047DQoNCiAgICBjaGFyIGMgPSB2YXJpYW50TmFtZVswXTsNCg0KICAgIHN3aXRjaCAoYykgew0KICAgICAgICBjYXNlICdDJzogDQogICAgICAgIGNhc2UgJ2MnOiANCiAgICAgICAgICAgIHJldHVybiBGbGF2b3JWYXJpYW50OjpDT0tFOw0KICAgICAgICANCiAgICAgICAgY2FzZSAnUyc6IA0KICAgICAgICBjYXNlICdzJzogDQogICAgICAgICAgICByZXR1cm4gRmxhdm9yVmFyaWFudDo6U1BSSVRFOw0KICAgICAgICANCiAgICAgICAgY2FzZSAnVyc6IA0KICAgICAgICBjYXNlICd3JzogDQogICAgICAgICAgICByZXR1cm4gRmxhdm9yVmFyaWFudDo6V0FURVI7DQogICAgICAgICAgICANCiAgICAgICAgZGVmYXVsdDogDQogICAgICAgICAgICByZXR1cm4gRmxhdm9yVmFyaWFudDo6RkxBVk9SX1VOS05PV047DQogICAgfQ0KfQ==</c:code>
       </c:module>
     </c:modules>
     <oc:media>
